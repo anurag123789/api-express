@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const {mongoose} = require('./db/mongoose.js')
 const {Todo} = require('./models/todo')
 const {user} = require('./models/user')
-
+const port = process.env.PORT || 3000;
 var app = express();
 
 app.use(bodyParser.json());
@@ -22,6 +22,6 @@ app.post('/todos',(req, res)=>{
         res.status(400).send(e);
     });
 });
-app.listen(3000,()=>{
-    console.log('server started 3000')
+app.listen(port,()=>{
+    console.log(`server started ${port}`)
 });
